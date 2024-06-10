@@ -1,4 +1,10 @@
 <?php 
+// session_start();
+
+// if( isset($_SESSION["login"])) {
+//   header("Location: login.php");
+//   exit;
+// }
 
 require 'functions.php';
 $id = $_GET["id"];
@@ -11,14 +17,14 @@ if (isset($_POST["submit"])) {
         echo "
         <script>
             alert('data berhasil diedit!');
-            document.location.href = 'dtpolygon.php';
+            document.location.href = 'index.php';
         </script>
         ";
     } else {
         echo "
         <script>
             alert('data gagal diedit!');
-            document.location.href = 'dtpolygon.php';
+            document.location.href = 'index.php';
         </script>
         ";
     }
@@ -38,18 +44,23 @@ if (isset($_POST["submit"])) {
         <h1>Edit Data Sepeda</h1>
         <form action="" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?= $spt["id"]; ?>">
-            <input type="hidden" name="gambarLama" value="<?= $spt["Gambar"]; ?>">
+            <input type="hidden" name="gambarLama" value="<?= $spt["gambar"]; ?>">
             <div class="mb-3">
-                <label for="Gambar" class="form-label">Gambar</label>
-                <input type="file" class="form-control" id="Gambar" name="Gambar" require value="<?= $spt["Gambar"]; ?>">
+                <label for="gambar" class="form-label">Gambar</label>
+                <img src="../img/?= $spt['gambar']; ?>" width="50" alt="">
+                <input type="file" class="form-control" id="gambar" name="gambar">
             </div>
             <div class="mb-3">
-                <label for="Jenis" class="form-label">Jenis</label>
-                <input type="text" class="form-control" id="Jenis" name="Jenis" require value="<?= $spt["Jenis"]; ?>">
+                <label for="detail" class="form-label">Detail</label>
+                <input type="text" class="form-control" id="detail" name="detail" require value="<?= $spt["detail"]; ?>">
             </div>
             <div class="mb-3">
-                <label for="Harga" class="form-label">Harga</label>
-                <input type="text" class="form-control" id="Harga" name="Harga" require value="<?= $spt["Harga"]; ?>">
+                <label for="jenis" class="form-label">Jenis</label>
+                <input type="text" class="form-control" id="jenis" name="jenis" require value="<?= $spt["jenis"]; ?>">
+            </div>
+            <div class="mb-3">
+                <label for="harga" class="form-label">Harga</label>
+                <input type="text" class="form-control" id="harga" name="harga" require value="<?= $spt["harga"]; ?>">
             </div>
             <button type="submit" name="submit" class="btn btn-primary">Edit</button>
         </form>
